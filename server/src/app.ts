@@ -3,13 +3,17 @@ import express, { NextFunction, Request, Response } from "express"
 import createHttpError, {isHttpError} from "http-errors";
 import morgan from "morgan";
 import { router } from "./Routes/AuctionRoutes";
+import cors from "cors"
+import { authRouter } from "./Routes/AuthRoutes";
 
 export const app = express();
 
 
 app.use(morgan("dev"))
 app.use(express.json())
+app.use(cors())
 app.use("/", router)
+app.use("/auth", authRouter)
 
 
 

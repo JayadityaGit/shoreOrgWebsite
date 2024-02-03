@@ -137,7 +137,7 @@ export const DeleteAuction: RequestHandler =  async(req, res, next)=>{
          
 
 
-         await AuctionModel.findByIdAndDelete();
+         await AuctionModel.findByIdAndDelete(auctionId);
 
         
         
